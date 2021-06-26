@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -27,7 +28,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private AppBarConfiguration mAppBarConfiguration;
 
-
     private MyAdapter mAdapter;
 
+    final
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +46,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+//        Button abcButton = findViewById(R.id.abc);
 
-
-
+        AdsManager adsManager = new AdsManager(this);
+        final InterstitialAd inter = adsManager.createInterstialAds();
         // RecyclerView
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
 // Set its Properties
@@ -60,18 +61,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setAdapter(mAdapter);
 
 
-
-
-
-
-
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (inter.isLoaded()) {
+                    inter.show();
+                }
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
