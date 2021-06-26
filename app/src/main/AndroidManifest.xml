@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.micro.apps.shayari">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/loveicon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/loveicon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.micro.apps.shayari.MainActivity" />
+        <activity
+            android:name="com.micro.apps.shayari.SplashScreen"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.micro.apps.shayari.categories.Attitude"/>
+        <activity android:name="com.micro.apps.shayari.categories.BestWishesh"/>
+        <activity android:name="com.micro.apps.shayari.categories.BirthDay"/>
+        <activity android:name="com.micro.apps.shayari.categories.Couple"/>
+        <activity android:name="com.micro.apps.shayari.categories.FriendShipDay"/>
+        <activity android:name="com.micro.apps.shayari.categories.Funny"/>
+        <activity android:name="com.micro.apps.shayari.categories.God"/>
+        <activity android:name="com.micro.apps.shayari.categories.GoodMorning"/>
+        <activity android:name="com.micro.apps.shayari.categories.GoodNight"/>
+        <activity android:name="com.micro.apps.shayari.categories.Love"/>
+        <activity android:name="com.micro.apps.shayari.categories.Romantics"/>
+        <activity android:name="com.micro.apps.shayari.categories.ValentineDay"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6792029416339552~4568781610" />
+    </application>
+
+</manifest>
