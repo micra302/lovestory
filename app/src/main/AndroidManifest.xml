@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.micro.apps.shayari">
 
+    <uses-permission android:name= "android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/loveicon"
@@ -39,7 +41,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6792029416339552~4568781610" />
+            android:value="@string/admob_app_id" />
     </application>
 
 </manifest>
